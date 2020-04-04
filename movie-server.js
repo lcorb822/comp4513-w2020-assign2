@@ -36,7 +36,7 @@ app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
  });
 
-let port = 8080;
+let port =process.nextTick.PORT || 8080;
 app.listen(port, function () {
  console.log("Server running at port= " + port);
 });
