@@ -1,0 +1,25 @@
+{
+  "name": "comp4513-w2020-assign2",
+  "version": "1.0.0",
+  "description": "**Please view `COMP4513 Assignment 2.pdf` for instructions**",
+  "main": "movie-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mru-comp4513-archive/comp4513-w2020-assign2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mru-comp4513-archive/comp4513-w2020-assign2/issues"
+  },
+  "homepage": "https://github.com/mru-comp4513-archive/comp4513-w2020-assign2#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  }
+}
