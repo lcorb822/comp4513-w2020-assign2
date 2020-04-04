@@ -4,7 +4,8 @@
   "description": "**Please view `COMP4513 Assignment 2.pdf` for instructions**",
   "main": "movie-server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node movie-server.js"
   },
   "repository": {
     "type": "git",
@@ -22,4 +23,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.7"
   }
+  
+    
 }
+
