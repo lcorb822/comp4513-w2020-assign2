@@ -15,7 +15,6 @@ const app = express();
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.status(404).send("Sorry can't find that!")
   next();
  });
 
@@ -38,6 +37,10 @@ movieRouter.handleTitleMovies(app,Movie);
 movieRouter.handleYears(app,Movie);
 movieRouter.handleRatings(app,Movie);
 
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!")
+ 
+ });
 
 let port =process.env.PORT || 8080;
 app.listen(port, function () {
