@@ -11,7 +11,13 @@ const app = express();
 // // also add a path to static
 // app.use('/static', express.static('public'));
 // // convert raw requests into usable data
-
+// customize the 404 error with our own middleware function
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.status(404).send("Sorry can't find that!")
+  next();
+ });
 
 // get our data model
 const Movie = require('./models/Movie');
@@ -31,12 +37,7 @@ movieRouter.handleSingleMovie(app,Movie);
 movieRouter.handleTitleMovies(app,Movie);
 movieRouter.handleYears(app,Movie);
 movieRouter.handleRatings(app,Movie);
-// customize the 404 error with our own middleware function
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.status(404).send("Sorry can't find that!")
- });
+
 
 let port =process.env.PORT || 8080;
 app.listen(port, function () {
