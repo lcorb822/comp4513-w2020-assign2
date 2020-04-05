@@ -33,6 +33,7 @@ movieRouter.handleYears(app,Movie);
 movieRouter.handleRatings(app,Movie);
 // customize the 404 error with our own middleware function
 app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.status(404).send("Sorry can't find that!")
  });
 
