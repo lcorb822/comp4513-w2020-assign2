@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // define a schema that maps to the structure of the data in MongoDB
-const movieSchema = new mongoose.Schema({
+const favoriteSchema = new mongoose.Schema({
   id:Number,
   tmdb_id:Number,
   imdb_id:String,
@@ -11,11 +11,10 @@ const movieSchema = new mongoose.Schema({
   tagline:String,
   poster:String,
   ratings: {
-     average:Number,
-     popularity:Number,
-     count:Number
-   }
-  // details:{},
-  // production:{}
+  popularity:Number,
+  average:Number,
+  count:Number
+  },
+  overview:String
 });
-module.exports = mongoose.model('Movie', movieSchema, 'movies');
+module.exports = mongoose.model('Favorite', favoriteSchema);

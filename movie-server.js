@@ -20,6 +20,8 @@ app.use(function (req, res, next) {
 
 // get our data model
 const Movie = require('./models/Movie');
+const Brief = require('./models/Brief');
+const Favorite = require("./models/Favorite");
 // tell node to use json and HTTP header features in body-parser
 app.use(parser.json());
 app.use(parser.urlencoded({extended: true}));
@@ -29,8 +31,10 @@ app.use(parser.urlencoded({extended: true}));
 //   heading: 'Sample Pug File' })
 //  });
  // set up route handlers
-// use the route handlers
+const briefRouter = require('./handlers/briefRouter.js');
 const movieRouter = require('./handlers/movieRouter.js');
+const favoriteRouter = require('./handlers/favoriteRouter.js');
+briefRouter.handleAllBriefs(app, Brief);
 movieRouter.handleAllMovies(app,Movie);
 movieRouter.handleSingleMovie(app,Movie);
 movieRouter.handleTitleMovies(app,Movie);
