@@ -34,6 +34,7 @@ app.use(parser.urlencoded({extended: true}));
 const briefRouter = require('./handlers/briefRouter.js');
 const movieRouter = require('./handlers/movieRouter.js');
 const favoriteRouter = require('./handlers/favoriteRouter.js');
+favoriteRouter.handleAllFavorites(app,Favorite);
 briefRouter.handleAllBriefs(app, Brief);
 movieRouter.handleAllMovies(app,Movie);
 movieRouter.handleSingleMovie(app,Movie);
