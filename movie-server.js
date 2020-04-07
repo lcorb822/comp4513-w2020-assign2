@@ -33,6 +33,7 @@ const movieRouter = require('./handlers/movieRouter.js');
 const favoriteRouter = require('./handlers/favoriteRouter.js');
 favoriteRouter.handleGetFavorites(app,Favorite);
 favoriteRouter.handlePostFavorite(app,Favorite);
+favoriteRouter.handleDeleteFavorite(app,Favorite);
 briefRouter.handleAllBriefs(app, Brief);
 movieRouter.handleAllMovies(app,Movie);
 movieRouter.handleSingleMovie(app,Movie);
