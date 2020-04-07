@@ -17,7 +17,7 @@ const handlePostFavorite = (app,Favorite) =>{
   app.route('/api/favorites')
   .post(function (req,resp) {
     // retrieve the form data from the http request
-    const newFav = JSON.parse(req.body);
+    const newFav = req.body;
     console.log(req.body);
     Favorite.create(newFav,function(err,data) {
       if (err) {
