@@ -17,7 +17,8 @@ const handlePostFavorite = (app,Favorite) =>{
   app.route('/api/favorites')
   .post(function (req,resp) {
     // retrieve the form data from the http request
-    const newFav = req.body;
+    const newFav = JSON.parse(req.body);
+    console.log(req.body);
     Favorite.create(newFav,function(err,data) {
       if (err) {
         resp.json({ message: 'Unable to connect to favorites' });
