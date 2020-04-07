@@ -34,7 +34,7 @@ const handlePostFavorite = (app,Favorite) =>{
 const handleDeleteFavorite = (app,Favorite) =>{
   app.route('/api/favorites')
   .delete(function (req,resp) {
-    const requestID = req.params.id
+    const requestID = req.body.id
     Favorite.deleteOne(requestID,function(err,data) {
       if (err) {
         resp.json({ message: 'Unable to connect to favorites' });
