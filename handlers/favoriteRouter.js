@@ -39,7 +39,7 @@ const handleDeleteFavorite = (app,Favorite) =>{
       if (err) {
         resp.json({ message: 'Unable to connect to favorites' });
         } else {
-        const msg = `Favorite was removed id=${req.params.id}`;
+        const msg = `Favorite was removed id=${requestID}`;
         resp.json({ message: msg });
     }
   });
