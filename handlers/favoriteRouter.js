@@ -1,4 +1,4 @@
-const handleAllFavorites = (app, Favorite) => {
+const handleGetFavorites = (app, Favorite) => {
   app.route('/api/favorites')
   .get(function (req,resp) {
   // use mongoose to retrieve all images from Mongo
@@ -11,6 +11,9 @@ const handleAllFavorites = (app, Favorite) => {
   }
   });
   });
+  
+};
+const handlePostFavorite = (app,Favorite) =>{
   app.route('/api/favorites')
   .post(function (req,resp) {
     // retrieve the form data from the http request
@@ -26,7 +29,8 @@ const handleAllFavorites = (app, Favorite) => {
   });
 
  });
-};
+}
  module.exports = {
-   handleAllFavorites
+   handleGetFavorites,
+   handlePostFavorite
  }

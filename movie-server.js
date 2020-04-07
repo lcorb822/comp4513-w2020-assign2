@@ -1,5 +1,6 @@
 const express = require('express');
 const parser = require('body-parser');
+const cors = require('cors');
 // create connection to database
 require('./handlers/dataConnector.js').connect();
 // create an express app
@@ -12,11 +13,7 @@ const app = express();
 // app.use('/static', express.static('public'));
 // // convert raw requests into usable data
 // customize the 404 error with our own middleware function
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
- });
+app.use(cors({origin:true,credentials: true}));
 
 // get our data model
 const Movie = require('./models/Movie');
@@ -34,7 +31,8 @@ app.use(parser.urlencoded({extended: true}));
 const briefRouter = require('./handlers/briefRouter.js');
 const movieRouter = require('./handlers/movieRouter.js');
 const favoriteRouter = require('./handlers/favoriteRouter.js');
-favoriteRouter.handleAllFavorites(app,Favorite);
+favoriteRouter.handleGetFavorites(app,Favorite);
+favoriteRouter.handlePostFavorite(app,Favorite);
 briefRouter.handleAllBriefs(app, Brief);
 movieRouter.handleAllMovies(app,Movie);
 movieRouter.handleSingleMovie(app,Movie);
